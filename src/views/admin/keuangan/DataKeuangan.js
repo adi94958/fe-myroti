@@ -30,7 +30,7 @@ const KelolaDataKeuangan = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8000/api/keuangan')
+      .get('https://be-myroti-production.up.railway.app/api/keuangan')
       .then((response) => {
         console.log(response.data)
         setDataKeuangan(response.data)
@@ -64,7 +64,7 @@ const KelolaDataKeuangan = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:8000/api/keuangan/delete/${data.id}`)
+          .delete(`https://be-myroti-production.up.railway.app/api/keuangan/delete/${data.id}`)
           .then((response) => {
             Swal.fire('Deleted!', 'Your file has been deleted.', 'success')
             window.location.href = '/admin/keuangan'

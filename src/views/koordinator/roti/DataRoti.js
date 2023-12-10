@@ -38,7 +38,7 @@ const KelolaDataDataRoti = () => {
   useEffect(() => {
     // Menggunakan Axios untuk mengambil data dari API
     axios
-      .get('http://localhost:8000/api/koordinator/dataroti')
+      .get('https://be-myroti-production.up.railway.app/api/koordinator/dataroti')
       .then((response) => {
         console.log(response.data)
         setDataRoti(response.data)
@@ -74,7 +74,7 @@ const KelolaDataDataRoti = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:8000/api/koordinator/dataroti/delete/${data.kode_roti}`)
+          .delete(`https://be-myroti-production.up.railway.app/api/koordinator/dataroti/delete/${data.kode_roti}`)
           .then((response) => {
             Swal.fire('Deleted!', 'Your file has been deleted.', 'success')
             window.location.href = '/roti'

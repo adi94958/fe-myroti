@@ -59,7 +59,7 @@ const FormPengiriman = () => {
           nama_kurir: dataTransaksi.nama_kurir,
         });
 
-        const responseRekomendasi = await axios.get('http://localhost:8000/api/rekomendasi');
+        const responseRekomendasi = await axios.get('https://be-myroti-production.up.railway.app/api/rekomendasi');
         console.log('Rekomendasi', responseRekomendasi.data);
 
         const filteredData = responseRekomendasi.data.filter((transaksi) => {
@@ -77,7 +77,7 @@ const FormPengiriman = () => {
         setDataRekomendasi(mappedFilteredData);
 
         // Second useEffect logic
-        const responseRoti = await axios.get('http://localhost:8000/api/koordinator/dataroti');
+        const responseRoti = await axios.get('https://be-myroti-production.up.railway.app/api/koordinator/dataroti');
         const initRoti = responseRoti.data.map((roti) => ({
           kode_roti: roti.kode_roti,
           nama_roti: roti.nama_roti,
@@ -240,7 +240,7 @@ const FormPengiriman = () => {
     }
 
     axios.post(
-      `http://localhost:8000/api/koordinator/transaksi/create/${formData.kode_lapak}`,
+      `https://be-myroti-production.up.railway.app/api/koordinator/transaksi/create/${formData.kode_lapak}`,
       transaksi,
     )
     Swal.fire({

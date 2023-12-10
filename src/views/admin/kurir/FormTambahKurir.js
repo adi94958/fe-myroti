@@ -37,7 +37,7 @@ const FormTambahKurir = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8000/api/area')
+      .get('https://be-myroti-production.up.railway.app/api/area')
       .then((response) => {
         console.log(response.data)
         setDataArea(response.data)
@@ -95,7 +95,7 @@ const FormTambahKurir = () => {
     console.log(newUser)
 
     try {
-      const response = await axios.post('http://localhost:8000/api/kurir/registrasi', newUser)
+      const response = await axios.post('https://be-myroti-production.up.railway.app/api/kurir/registrasi', newUser)
       Swal.fire({
         title: 'Berhasil',
         text: `Data Kurir berhasil ditambahkan.`,

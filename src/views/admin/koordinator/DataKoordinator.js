@@ -30,7 +30,7 @@ const KelolaDataKoordinator = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8000/api/koordinator')
+      .get('https://be-myroti-production.up.railway.app/api/koordinator')
       .then((response) => {
         console.log(response.data)
         setDataKoordinator(response.data)
@@ -64,7 +64,7 @@ const KelolaDataKoordinator = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:8000/api/koordinator/delete/${data.id}`)
+          .delete(`https://be-myroti-production.up.railway.app/api/koordinator/delete/${data.id}`)
           .then((response) => {
             Swal.fire('Deleted!', 'Your file has been deleted.', 'success')
             window.location.href = '/admin/koordinator'

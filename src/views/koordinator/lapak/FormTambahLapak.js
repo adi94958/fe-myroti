@@ -37,7 +37,7 @@ const FormTambahLapak = () => {
 
   function handleArea() {
     axios
-      .get('http://localhost:8000/api/area')
+      .get('https://be-myroti-production.up.railway.app/api/area')
       .then((response) => {
         const data = response.data // Mengakses data dari respons API
 
@@ -58,7 +58,7 @@ const FormTambahLapak = () => {
 
   function handleKurir(area_lapak) {
     axios
-      .get('http://localhost:8000/api/kurir')
+      .get('https://be-myroti-production.up.railway.app/api/kurir')
       .then((response) => {
         const data = response.data // Pastikan respons dari API kurir mengandung data kurir yang benar
         const areaLapakString = parseInt(area_lapak, 10)
@@ -114,7 +114,7 @@ const FormTambahLapak = () => {
 
     try {
       const response = await axios.post(
-        'http://localhost:8000/api/koordinator/lapak/registrasi',
+        'https://be-myroti-production.up.railway.app/api/koordinator/lapak/registrasi',
         newLapak,
       )
       Swal.fire({

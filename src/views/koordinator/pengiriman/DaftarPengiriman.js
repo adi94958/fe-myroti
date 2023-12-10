@@ -47,7 +47,7 @@ const DaftarPengiriman = () => {
 
   const handleData = () => {
     axios
-      .get('http://localhost:8000/api/kurir/transaksi')
+      .get('https://be-myroti-production.up.railway.app/api/kurir/transaksi')
       .then((response) => {
         console.log(response.data)
         setDataTransaksi(response.data)
@@ -99,7 +99,7 @@ const DaftarPengiriman = () => {
     if (lapak.status === 'delivered') {
       console.log(lapak.bukti_pengiriman)
       axios
-        .get('http://localhost:8000/api/koordinator/' + lapak.bukti_pengiriman, {
+        .get('https://be-myroti-production.up.railway.app/api/koordinator/' + lapak.bukti_pengiriman, {
           responseType: 'blob',
         })
         .then((response) => {
@@ -144,7 +144,7 @@ const DaftarPengiriman = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:8000/api/koordinator/transaksi/delete/${data.id_transaksi}`)
+          .delete(`https://be-myroti-production.up.railway.app/api/koordinator/transaksi/delete/${data.id_transaksi}`)
           .then((response) => {
             Swal.fire('Deleted!', 'Your file has been deleted.', 'success')
             window.location.href = '/pengiriman/list'
@@ -262,8 +262,8 @@ const DaftarPengiriman = () => {
                               lapak.status === 'ready'
                                 ? 'green' // Assuming 'ready' status should display green text
                                 : lapak.status === 'on delivery'
-                                ? 'red' // 'on delivery' status will display red text
-                                : 'blue',
+                                  ? 'red' // 'on delivery' status will display red text
+                                  : 'blue',
                           }}
                         >
                           {lapak.status}

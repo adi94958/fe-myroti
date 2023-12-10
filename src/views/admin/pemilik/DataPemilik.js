@@ -30,7 +30,7 @@ const KelolaDataPemilik = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8000/api/pemilik')
+      .get('https://be-myroti-production.up.railway.app/api/pemilik')
       .then((response) => {
         console.log(response.data)
         setDataPemilik(response.data)
@@ -64,7 +64,7 @@ const KelolaDataPemilik = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:8000/api/pemilik/delete/${data.id_pemilik}`)
+          .delete(`https://be-myroti-production.up.railway.app/api/pemilik/delete/${data.id_pemilik}`)
           .then((response) => {
             Swal.fire('Deleted!', 'Your file has been deleted.', 'success')
             window.location.href = '/admin/pemilik'

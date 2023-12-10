@@ -88,7 +88,7 @@ const FormUpdateKeuangan = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:8000/api/keuangan/update/${formData.id}`,
+        `https://be-myroti-production.up.railway.app/api/keuangan/update/${formData.id}`,
         updateUser,
       )
       console.log('Roti updated successfully:', response.data)

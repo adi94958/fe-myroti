@@ -60,7 +60,7 @@ const DaftarPengiriman = () => {
 
       setKurirId(infoLogin.id)
 
-      const response = await axios.get('http://localhost:8000/api/kurir/transaksi')
+      const response = await axios.get('https://be-myroti-production.up.railway.app/api/kurir/transaksi')
 
       setDataTransaksi(response.data)
 
@@ -221,7 +221,7 @@ const DaftarPengiriman = () => {
     }
     try {
       await axios.post(
-        `http://localhost:8000/api/kurir/penjualan/${item.id_transaksi}`,
+        `https://be-myroti-production.up.railway.app/api/kurir/penjualan/${item.id_transaksi}`,
         informasiPenjualan,
       )
       Swal.fire({

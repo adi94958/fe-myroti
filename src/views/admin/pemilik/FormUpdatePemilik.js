@@ -88,7 +88,7 @@ const FormUpdatePemilik = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:8000/api/pemilik/update/${formData.id}`,
+        `https://be-myroti-production.up.railway.app/api/pemilik/update/${formData.id}`,
         updateUser,
       )
       localStorage.removeItem('lsDataPemilik')

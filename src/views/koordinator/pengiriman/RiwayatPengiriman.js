@@ -47,7 +47,7 @@ const RiwayatPengiriman = () => {
 
   const handlePenjualan = () => {
     axios
-      .get('http://localhost:8000/api/kurir/datapenjualan')
+      .get('https://be-myroti-production.up.railway.app/api/kurir/datapenjualan')
       .then((response) => {
         setDataPenjualan(response.data)
       })
@@ -66,7 +66,7 @@ const RiwayatPengiriman = () => {
   const handleRotiClick = async (lapak) => {
     try {
       const response = await axios.get(
-        `http://localhost:8000/api/kurir/riwayat-transaksi/${lapak.id_transaksi}`,
+        `https://be-myroti-production.up.railway.app/api/kurir/riwayat-transaksi/${lapak.id_transaksi}`,
       )
       if (response.status >= 200 && response.status < 300) {
         const data = response.data
@@ -84,7 +84,7 @@ const RiwayatPengiriman = () => {
     if (lapak.status === 'delivered') {
       console.log(lapak.bukti_pengiriman)
       axios
-        .get('http://localhost:8000/api/koordinator/' + lapak.bukti_pengiriman, {
+        .get('https://be-myroti-production.up.railway.app/api/koordinator/' + lapak.bukti_pengiriman, {
           responseType: 'blob',
         })
         .then((response) => {

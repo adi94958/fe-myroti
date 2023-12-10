@@ -53,7 +53,7 @@ const AppHeader = () => {
 
   const handleDataPenghasilan = (LoginId) => {
     axios
-      .get('http://localhost:8000/api/kurir/penghasilan/' + LoginId)
+      .get('https://be-myroti-production.up.railway.app/api/kurir/penghasilan/' + LoginId)
       .then((response) => {
         console.log(response.data.penghasilan)
         setPenghasilan(response.data.penghasilan)

@@ -40,7 +40,7 @@ const FormUpdateKurir = () => {
     handleData()
 
     axios
-      .get('http://localhost:8000/api/area')
+      .get('https://be-myroti-production.up.railway.app/api/area')
       .then((response) => {
         console.log(response.data)
         setDataArea(response.data)
@@ -115,7 +115,7 @@ const FormUpdateKurir = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:8000/api/kurir/update/${formData.id}`,
+        `https://be-myroti-production.up.railway.app/api/kurir/update/${formData.id}`,
         newUser,
       )
       Swal.fire({

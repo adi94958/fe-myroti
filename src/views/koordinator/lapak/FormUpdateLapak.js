@@ -46,7 +46,7 @@ const FormUpdateRoti = () => {
 
   function handleArea() {
     axios
-      .get('http://localhost:8000/api/area')
+      .get('https://be-myroti-production.up.railway.app/api/area')
       .then((response) => {
         const data = response.data // Mengakses data dari respons API
         const formattedOptions = [
@@ -67,7 +67,7 @@ const FormUpdateRoti = () => {
 
   function handleKurir(area_id) {
     axios
-      .get('http://localhost:8000/api/kurir')
+      .get('https://be-myroti-production.up.railway.app/api/kurir')
       .then((response) => {
         const data = response.data // Pastikan respons dari API kurir mengandung data kurir yang benar
         const areaLapakString = parseInt(area_id, 10)
@@ -123,7 +123,7 @@ const FormUpdateRoti = () => {
 
     try {
       const response = axios.put(
-        `http://localhost:8000/api/koordinator/lapak/update/${kodeLapak}`,
+        `https://be-myroti-production.up.railway.app/api/koordinator/lapak/update/${kodeLapak}`,
         updateLapak,
       )
       console.log('Roti updated successfully:', response.data)

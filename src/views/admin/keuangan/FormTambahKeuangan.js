@@ -72,7 +72,7 @@ const FormTambahKeuangan = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:8000/api/keuangan/registrasi', newUser)
+      const response = await axios.post('https://be-myroti-production.up.railway.app/api/keuangan/registrasi', newUser)
       Swal.fire({
         title: 'Berhasil',
         text: `Data Keuangan berhasil ditambahkan.`,

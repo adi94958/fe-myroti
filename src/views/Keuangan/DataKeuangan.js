@@ -41,7 +41,7 @@ const DataKeuangan = () => {
 
   const handleData = () => {
     axios
-      .get('http://localhost:8000/api/keuangan/kurir')
+      .get('https://be-myroti-production.up.railway.app/api/keuangan/kurir')
       .then((response) => {
         console.log(response.data)
         setDataKurir(response.data)

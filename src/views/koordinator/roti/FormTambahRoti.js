@@ -38,7 +38,7 @@ const FormTambahRoti = () => {
 
     try {
       const response = await axios.post(
-        'http://localhost:8000/api/koordinator/dataroti/registrasi',
+        'https://be-myroti-production.up.railway.app/api/koordinator/dataroti/registrasi',
         newRoti,
       )
       Swal.fire({

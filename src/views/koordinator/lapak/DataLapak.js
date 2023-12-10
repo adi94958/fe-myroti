@@ -38,7 +38,7 @@ const Lapak = () => {
   useEffect(() => {
     // Menggunakan Axios untuk mengambil data dari API
     axios
-      .get('http://localhost:8000/api/koordinator/lapak')
+      .get('https://be-myroti-production.up.railway.app/api/koordinator/lapak')
       .then((response) => {
         console.log(response.data)
         setDataLapak(response.data)
@@ -77,7 +77,7 @@ const Lapak = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:8000/api/koordinator/lapak/delete/${data.kode_lapak}`)
+          .delete(`https://be-myroti-production.up.railway.app/api/koordinator/lapak/delete/${data.kode_lapak}`)
           .then((response) => {
             Swal.fire('Deleted!', 'Your file has been deleted.', 'success')
             window.location.href = '/lapak'

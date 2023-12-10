@@ -72,7 +72,7 @@ const FormTambahPemilik = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:8000/api/pemilik/registrasi', newUser)
+      const response = await axios.post('https://be-myroti-production.up.railway.app/api/pemilik/registrasi', newUser)
       Swal.fire({
         title: 'Berhasil',
         text: `Data Pemilik berhasil ditambahkan.`,

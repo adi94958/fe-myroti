@@ -45,7 +45,7 @@ const FormUpdateRoti = () => {
 
     try {
       const response = axios.put(
-        `http://localhost:8000/api/koordinator/dataroti/update/${dataRoti.kode_roti}`,
+        `https://be-myroti-production.up.railway.app/api/koordinator/dataroti/update/${dataRoti.kode_roti}`,
         updateRoti,
       )
       console.log('Roti updated successfully:', response.data)

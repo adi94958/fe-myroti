@@ -39,7 +39,7 @@ const Pengiriman = () => {
 
   function handleDataTransaksi() {
     axios
-      .get('http://localhost:8000/api/koordinator/transaksi')
+      .get('https://be-myroti-production.up.railway.app/api/koordinator/transaksi')
       .then((response) => {
         setData(response.data)
       })

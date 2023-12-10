@@ -98,7 +98,7 @@ const DataPemilik = () => {
 
   const handleData = () => {
     axios
-      .get('http://localhost:8000/api/pemilik/income')
+      .get('https://be-myroti-production.up.railway.app/api/pemilik/income')
       .then((response) => {
         console.log(response.data)
         setIncome(response.data)
@@ -110,7 +110,7 @@ const DataPemilik = () => {
 
   const handleWeekly = () => {
     axios
-      .get('http://localhost:8000/api/pemilik/minggu')
+      .get('https://be-myroti-production.up.railway.app/api/pemilik/minggu')
       .then((response) => {
         console.log(response.data)
         setWeekly(response.data)
@@ -122,7 +122,7 @@ const DataPemilik = () => {
 
   const handleMonthly = () => {
     axios
-      .get('http://localhost:8000/api/pemilik/bulan')
+      .get('https://be-myroti-production.up.railway.app/api/pemilik/bulan')
       .then((response) => {
         console.log(response.data)
         setMonthly(response.data)

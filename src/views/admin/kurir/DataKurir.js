@@ -30,7 +30,7 @@ const KelolaDataKurir = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8000/api/kurir')
+      .get('https://be-myroti-production.up.railway.app/api/kurir')
       .then((response) => {
         console.log(response.data)
         setDataKurir(response.data)
@@ -66,7 +66,7 @@ const KelolaDataKurir = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:8000/api/kurir/delete/${data.id_kurir}`)
+          .delete(`https://be-myroti-production.up.railway.app/api/kurir/delete/${data.id_kurir}`)
           .then((response) => {
             Swal.fire('Deleted!', 'Your file has been deleted.', 'success')
             window.location.href = '/admin/kurir'

@@ -47,7 +47,7 @@ const DataPengiriman = () => {
 
   const handlePenjualan = () => {
     axios
-      .get('http://localhost:8000/api/kurir/datapenjualan')
+      .get('https://be-myroti-production.up.railway.app/api/kurir/datapenjualan')
       .then((response) => {
         setDataPenjualan(response.data)
       })
@@ -67,7 +67,7 @@ const DataPengiriman = () => {
   const handleRotiClick = async (lapak) => {
     try {
       const response = await axios.get(
-        `http://localhost:8000/api/kurir/riwayat-transaksi/${lapak.id_transaksi}`,
+        `https://be-myroti-production.up.railway.app/api/kurir/riwayat-transaksi/${lapak.id_transaksi}`,
       )
       if (response.status >= 200 && response.status < 300) {
         const data = response.data
