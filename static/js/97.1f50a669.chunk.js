@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunk_coreui_coreui_free_react_admin_template=self.webpackChunk_coreui_coreui_free_react_admin_template||[]).push([[97],{5097:(e,r,a)=>{a.r(r),a.d(r,{default:()=>_});a(2791);var c=a(184);const _=()=>(0,c.jsxs)("div",{children:[(0,c.jsx)("p",{children:" halo "}),(0,c.jsx)("p",{children:" halo bandung "})]})}}]);
+//# sourceMappingURL=97.1f50a669.chunk.js.map
