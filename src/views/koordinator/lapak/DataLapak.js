@@ -77,7 +77,9 @@ const Lapak = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`https://be-myroti-production.up.railway.app/api/koordinator/lapak/delete/${data.kode_lapak}`)
+          .delete(
+            `https://be-myroti-production.up.railway.app/api/koordinator/lapak/delete/${data.kode_lapak}`,
+          )
           .then((response) => {
             Swal.fire('Deleted!', 'Your file has been deleted.', 'success')
             window.location.href = '/lapak'

@@ -57,14 +57,16 @@ const FormPengiriman = () => {
           kode_lapak: dataTransaksi.kode_lapak,
           nama_lapak: dataTransaksi.nama_lapak,
           nama_kurir: dataTransaksi.nama_kurir,
-        });
+        })
 
-        const responseRekomendasi = await axios.get('https://be-myroti-production.up.railway.app/api/rekomendasi');
-        console.log('Rekomendasi', responseRekomendasi.data);
+        const responseRekomendasi = await axios.get(
+          'https://be-myroti-production.up.railway.app/api/rekomendasi',
+        )
+        console.log('Rekomendasi', responseRekomendasi.data)
 
         const filteredData = responseRekomendasi.data.filter((transaksi) => {
-          return transaksi.kode_lapak === dataTransaksi.kode_lapak;
-        });
+          return transaksi.kode_lapak === dataTransaksi.kode_lapak
+        })
 
         const mappedFilteredData = filteredData.map((transaksi) => ({
           kode_lapak: transaksi.kode_lapak,
@@ -72,12 +74,14 @@ const FormPengiriman = () => {
           jumlah_roti_transaksi: transaksi.jumlah_roti_transaksi,
           jumlah_roti_rotibasi: transaksi.jumlah_roti_rotibasi,
           calculated_value: transaksi.calculated_value,
-        }));
-        console.log('data filter', mappedFilteredData);
-        setDataRekomendasi(mappedFilteredData);
+        }))
+        console.log('data filter', mappedFilteredData)
+        setDataRekomendasi(mappedFilteredData)
 
         // Second useEffect logic
-        const responseRoti = await axios.get('https://be-myroti-production.up.railway.app/api/koordinator/dataroti');
+        const responseRoti = await axios.get(
+          'https://be-myroti-production.up.railway.app/api/koordinator/dataroti',
+        )
         const initRoti = responseRoti.data.map((roti) => ({
           kode_roti: roti.kode_roti,
           nama_roti: roti.nama_roti,
@@ -85,42 +89,46 @@ const FormPengiriman = () => {
           rasa_roti: roti.rasa_roti,
           harga_satuan_roti: roti.harga_satuan_roti,
           jumlah_roti_dikirim: 0,
-        }));
+        }))
 
         if (mappedFilteredData.length > 0) {
           const dataRecom = initRoti.map((existingRoti) => {
-            const matchedRoti = mappedFilteredData.find((roti) => roti.kode_roti === existingRoti.kode_roti);
+            const matchedRoti = mappedFilteredData.find(
+              (roti) => roti.kode_roti === existingRoti.kode_roti,
+            )
 
             if (matchedRoti) {
               return {
                 ...existingRoti,
                 jumlah_roti_dikirim: matchedRoti.calculated_value,
-              };
+              }
             }
-            return existingRoti;
-          });
+            return existingRoti
+          })
 
-          setDataRoti(dataRecom);
+          setDataRoti(dataRecom)
         } else {
           // Handle the case where mappedFilteredData is empty
-          const randomIndices = shuffleArray(Array.from({ length: initRoti.length }, (_, index) => index)).slice(0, 10);
+          const randomIndices = shuffleArray(
+            Array.from({ length: initRoti.length }, (_, index) => index),
+          ).slice(0, 10)
 
           randomIndices.forEach((index) => {
-            initRoti[index].jumlah_roti_dikirim = 5;
-          });
-          setDataRoti(initRoti);
+            initRoti[index].jumlah_roti_dikirim = 5
+          })
+          setDataRoti(initRoti)
         }
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error fetching data:', error)
       }
-    };
+    }
 
-    fetchData();
-  }, []); // Empty dependency array ensures the effect runs only once on mount
+    fetchData()
+  }, []) // Empty dependency array ensures the effect runs only once on mount
 
   const handleRotiModal = async () => {
-    setModalRoti(true);
-  };
+    setModalRoti(true)
+  }
 
   const handleJumlahRoti = (item, event) => {
     const inputValue = event.target.value
@@ -136,7 +144,7 @@ const FormPengiriman = () => {
         }
         return existingItem
       })
-      console.log("newData", newData)
+      console.log('newData', newData)
       return newData
     })
   }
@@ -149,7 +157,7 @@ const FormPengiriman = () => {
 
     if (isValid) {
       const newDataArray = dataRoti.filter((item) => item.jumlah_roti_dikirim > 0)
-      console.log("newDataArray :", newDataArray)
+      console.log('newDataArray :', newDataArray)
       setDataArray(newDataArray)
       setModalRoti(false)
       navigate('/pengiriman/kelola/kirim')
@@ -182,8 +190,7 @@ const FormPengiriman = () => {
       })
       Toast.fire({
         icon: 'warning',
-        title:
-          'Mohon maaf! Ada jumlah roti yang melebihi stok yang tersedia.',
+        title: 'Mohon maaf! Ada jumlah roti yang melebihi stok yang tersedia.',
       })
     }
   }
@@ -270,18 +277,18 @@ const FormPengiriman = () => {
   }
 
   const getRotiQuantity = (dataRoti, kode_roti) => {
-    const matchingRoti = dataRoti.find((item) => item.kode_roti === kode_roti);
-    return matchingRoti ? matchingRoti.jumlah_roti : 5;
-  };
+    const matchingRoti = dataRoti.find((item) => item.kode_roti === kode_roti)
+    return matchingRoti ? matchingRoti.jumlah_roti : 5
+  }
 
   // Random fill
 
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[array[i], array[j]] = [array[j], array[i]]
     }
-    return array;
+    return array
   }
 
   return (

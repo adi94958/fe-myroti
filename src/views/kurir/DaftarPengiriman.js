@@ -60,7 +60,9 @@ const DaftarPengiriman = () => {
 
       setKurirId(infoLogin.id)
 
-      const response = await axios.get('https://be-myroti-production.up.railway.app/api/kurir/transaksi')
+      const response = await axios.get(
+        'https://be-myroti-production.up.railway.app/api/kurir/transaksi',
+      )
 
       setDataTransaksi(response.data)
 

@@ -64,7 +64,9 @@ const KelolaDataPemilik = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`https://be-myroti-production.up.railway.app/api/pemilik/delete/${data.id_pemilik}`)
+          .delete(
+            `https://be-myroti-production.up.railway.app/api/pemilik/delete/${data.id_pemilik}`,
+          )
           .then((response) => {
             Swal.fire('Deleted!', 'Your file has been deleted.', 'success')
             window.location.href = '/admin/pemilik'

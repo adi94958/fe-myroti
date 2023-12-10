@@ -98,9 +98,12 @@ const DataPengiriman = () => {
 
   const handleStatus = (lapak) => {
     axios
-      .put(`https://be-myroti-production.up.railway.app/api/kurir/transaksi/${lapak.id_transaksi}`, {
-        status: 'on delivery',
-      })
+      .put(
+        `https://be-myroti-production.up.railway.app/api/kurir/transaksi/${lapak.id_transaksi}`,
+        {
+          status: 'on delivery',
+        },
+      )
       .then(() => {
         handleData()
       })
@@ -116,7 +119,10 @@ const DataPengiriman = () => {
       const formData = new FormData()
       formData.append('bukti_pengiriman', selectedFile)
       axios
-        .post(`https://be-myroti-production.up.railway.app/api/kurir/transaksi/${lapak.id_transaksi}`, formData)
+        .post(
+          `https://be-myroti-production.up.railway.app/api/kurir/transaksi/${lapak.id_transaksi}`,
+          formData,
+        )
         .then((response) => {
           console.log('File uploaded successfully', response)
           setFoto(null)

@@ -72,7 +72,10 @@ const FormTambahKoordinator = () => {
     }
 
     try {
-      const response = await axios.post('https://be-myroti-production.up.railway.app/api/koordinator/registrasi', newUser)
+      const response = await axios.post(
+        'https://be-myroti-production.up.railway.app/api/koordinator/registrasi',
+        newUser,
+      )
       Swal.fire({
         title: 'Berhasil',
         text: `Data Koordinator berhasil ditambahkan.`,

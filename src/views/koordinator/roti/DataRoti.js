@@ -74,7 +74,9 @@ const KelolaDataDataRoti = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`https://be-myroti-production.up.railway.app/api/koordinator/dataroti/delete/${data.kode_roti}`)
+          .delete(
+            `https://be-myroti-production.up.railway.app/api/koordinator/dataroti/delete/${data.kode_roti}`,
+          )
           .then((response) => {
             Swal.fire('Deleted!', 'Your file has been deleted.', 'success')
             window.location.href = '/roti'

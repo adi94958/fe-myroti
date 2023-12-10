@@ -95,7 +95,10 @@ const FormTambahKurir = () => {
     console.log(newUser)
 
     try {
-      const response = await axios.post('https://be-myroti-production.up.railway.app/api/kurir/registrasi', newUser)
+      const response = await axios.post(
+        'https://be-myroti-production.up.railway.app/api/kurir/registrasi',
+        newUser,
+      )
       Swal.fire({
         title: 'Berhasil',
         text: `Data Kurir berhasil ditambahkan.`,

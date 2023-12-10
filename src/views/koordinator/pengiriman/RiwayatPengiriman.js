@@ -84,9 +84,12 @@ const RiwayatPengiriman = () => {
     if (lapak.status === 'delivered') {
       console.log(lapak.bukti_pengiriman)
       axios
-        .get('https://be-myroti-production.up.railway.app/api/koordinator/' + lapak.bukti_pengiriman, {
-          responseType: 'blob',
-        })
+        .get(
+          'https://be-myroti-production.up.railway.app/api/koordinator/' + lapak.bukti_pengiriman,
+          {
+            responseType: 'blob',
+          },
+        )
         .then((response) => {
           const reader = new FileReader()
           reader.onload = (event) => {
