@@ -47,7 +47,7 @@ const Login = () => {
     e.preventDefault()
     try {
       console.log(loginForm)
-      const response = await axios.post(`http://localhost:8000/api/login`, {
+      const response = await axios.post(`https://be-myroti-production.up.railway.app/api/login`, {
         username: loginForm.username,
         password: loginForm.password,
       })
